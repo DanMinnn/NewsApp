@@ -18,4 +18,7 @@ interface NewsDao {
 
     @androidx.room.Query("SELECT * FROM Article")
     fun getArticles(): Flow<List<Article>>
+
+    @androidx.room.Query("SELECT * FROM Article WHERE url=:url")
+    suspend fun getArticle(url: String): Article?
 }
